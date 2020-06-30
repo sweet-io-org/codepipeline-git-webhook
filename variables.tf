@@ -26,11 +26,6 @@ variable "github_default_branch_name" {
   default     = ""
 }
 
-variable "webhook_url" {
-  type        = string
-  description = "Webhook URL"
-}
-
 variable "webhook_content_type" {
   type        = string
   description = "Webhook Content Type (e.g. `json`)"
