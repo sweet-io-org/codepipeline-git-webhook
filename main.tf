@@ -20,7 +20,7 @@ resource "aws_codepipeline_webhook" "default" {
 
   lifecycle {
     # This is required for idempotency
-    ignore_changes = [filter[0].match_equals]
+    ignore_changes = [filter[match_equals], filter[json_path]]
   }
 }
 
