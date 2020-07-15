@@ -17,6 +17,11 @@ resource "aws_codepipeline_webhook" "default" {
     json_path    = "$.ref"
     match_equals = "refs/heads/${var.github_default_branch_name}"
   }
+
+  lifecycle {
+    # This is required for idempotency
+    ignore_changes = [filter[0].match_equals, filter[1].json_path]
+  }
 }
 
 resource "github_repository_webhook" "default" {
